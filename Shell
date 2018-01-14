@@ -1378,7 +1378,8 @@ Team : <br><input type='text' name='team' placeholder='Hallucination Cyber'><br>
 Sites : <br><textarea name='sites' placeholder='http://maqlojuping.zone.id' style='width: 450px; height: 150px;'></textarea><br>
 <input type='submit' name='sikat' value='Submit'>
 </form>";
-
+}
+    echo "</center>";
 
 error_reporting(0);
 $nick = $_POST['nick'];
